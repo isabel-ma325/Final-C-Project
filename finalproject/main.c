@@ -1,21 +1,15 @@
-#include <stdio.h>
-#define MAXTEST 5
-#define MAXTIME 30
-/* structure to store info for each exam*/
-struct examinfo {
-	int examtime;
-	int examdiff;
-    float signif;
-};
-/* structure to store how much free time there is */
-struct dailytime {
-	int freetime;
-};
+#include "main.h"
+
 int main(void) {
 	int examnum;
 	struct examinfo arr_examinfo[MAXTEST]; //making an array of structures
     struct dailytime arr_dailytime[7];
 
+    for (int z = SUN; z<=SAT; z++) {
+        printf("%s\n",DAYS[z]);
+    }
+
+/*
 	printf("How many exams do you have? ");
 	scanf("%d", &examnum);
 	if (examnum > MAXTEST){ //making sure number of exams is under six
@@ -31,8 +25,8 @@ int main(void) {
     for (int j=1; j <= 7; j++){ //storing information for free time
         printf("How much free time do you have on day %d of the week? ", j);
         scanf("%d", &arr_dailytime[j].freetime);
-}
-
+    }
+*/
 
 }
 
