@@ -8,13 +8,18 @@ enum daysOfWeek { SUN, MON, TUE, WED, THU, FRI, SAT };
 char* DAYS[7] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 
 /* structure to store info for each exam*/
-struct examinfo {
-	int examtime;
-	int examdiff;
-    float signif;
+struct examinfo { // ExamInfo
+	int examtime; // examTime -> timeUntilExamInDays
+	int examdiff; // examDifficulty
+    float signif; 
 };
 
 /* structure to store how much free time there is */
 struct dailytime {
 	int freetime;
 };
+
+/*Creating a fxn to determine the sum of all exam difficulties*/
+int sumdiff(int numOfExams, struct examinfo arr_examinfo[MAXTEST]);
+float importance(int i, int numOfExams, struct examinfo arr_examinfo[MAXTEST]);
+
