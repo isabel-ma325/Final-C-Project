@@ -22,4 +22,5 @@ struct dailytime {
 /*Creating a fxn to determine the sum of all exam difficulties*/
 int sumdiff(int numOfExams, struct examinfo arr_examinfo[MAXTEST]);
 float importance(int i, int numOfExams, struct examinfo arr_examinfo[MAXTEST]);
-
+float maximportance(int numOfExams, struct examinfo arr_examinfo[MAXTEST]);
+float timestudying(int i, int j, struct examinfo arr_examinfo[MAXTEST], struct dailytime arr_dailytime[7]);
