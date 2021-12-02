@@ -1,5 +1,12 @@
 #include "main.h"
-
+/*
+Things to Improve:
+- including the days the user has to study in schedule
+- combine the tests they have to study for in a specific day
+- ask the user for what day it is today and use that to say what days they should study
+- clarify unit of time
+- adding schedule.c and schedule.h
+ */
 int main(void) {
 	int examnum;
 	struct examinfo arr_examinfo[MAXTEST]; //making an array of structures
