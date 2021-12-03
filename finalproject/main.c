@@ -17,13 +17,13 @@ int main(void) {
 		scanf("%d", &examnum);
 	}
 	for (int i=0; i< examnum; i++){ //storing information of each exam into structs
-		printf("How hard is exam %d on a scale of 1 to 5? ", i+1);
+		printf("How hard is exam %d on a scale of 1 to 5, with 1 being it is easy and 5 being that it is difficult? ", i+1);
 		scanf("%d", &arr_examinfo[i].examdiff);
             if (arr_examinfo[i].examdiff > 5){
                 printf("Please enter a valid number: ");
                 scanf("%d", &arr_examinfo[i].examdiff);
             }
-		printf("How much time do you have to study for exam %d? ", i+1);
+		printf("How much time in days do you have to study for exam %d? ", i+1);
 		scanf("%d", &arr_examinfo[i].examtime);
             if (arr_examinfo[i].examtime > 30){
                 printf("You have a lot of time, please enter a value under 31: ");
