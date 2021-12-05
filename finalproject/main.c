@@ -23,7 +23,7 @@ int main(void) {
                 printf("Please enter a valid number: ");
                 scanf("%d", &arr_examinfo[i].examdiff);
             }
-		printf("How much time in days do you have to study for exam %d? ", i+1);
+		printf("How many days do  you have to study for exam %d? ", i+1);
 		scanf("%d", &arr_examinfo[i].examtime);
             if (arr_examinfo[i].examtime > 30){
                 printf("You have a lot of time, please enter a value under 31: ");
