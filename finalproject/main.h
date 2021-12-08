@@ -24,3 +24,5 @@ int sumdiff(int numOfExams, struct examinfo arr_examinfo[MAXTEST]);
 float importance(int i, int numOfExams, struct examinfo arr_examinfo[MAXTEST]);
 float maximportance(int numOfExams, struct examinfo arr_examinfo[MAXTEST]);
 float timestudying(int i, int j, struct examinfo arr_examinfo[MAXTEST], struct dailytime arr_dailytime[7]);
+int numweekstudying(int i, struct examinfo arr_examinfo[MAXTEST]);
+int remainderdaystudying(int i, struct examinfo arr_examinfo[MAXTEST]);

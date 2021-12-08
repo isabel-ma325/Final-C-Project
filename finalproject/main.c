@@ -9,6 +9,7 @@ Things to Improve:
  */
 int main(void) {
 	int examnum;
+    int daytoday;
 	struct examinfo arr_examinfo[MAXTEST]; //making an array of structures
     struct dailytime arr_dailytime[7];
 //will delete, this lets me write out days of week
@@ -17,6 +18,8 @@ int main(void) {
     }
 
 //getting information from user
+    printf("What day of the week is today if Sunday = 0 and Saturday = 6?");
+    scanf("%d", &daytoday);
 	printf("How many exams do you have? ");
 	scanf("%d", &examnum);
 	if (examnum > MAXTEST){ //making sure number of exams is under six
@@ -51,19 +54,20 @@ for (int i=0; i<examnum; i++){
     if (arr_examinfo[i].examtime > 15 ){ //the significance of an exam decreases if you have a lot of time
         arr_examinfo[i].examdiff = arr_examinfo[i].examdiff/2; //i decrease the difficulty stored to make this change
         arr_examinfo[i].signif = importance(i, examnum, arr_examinfo); //this is where i store the significance into struct member "signif"
-        printf("%f\n", arr_examinfo[i].signif); //testing purposes
+
     }
     else if (arr_examinfo[i].examtime < 2){//the significance of an exam increases if you have very little time
         arr_examinfo[i].examdiff = 5;
         arr_examinfo[i].signif = importance(i, examnum, arr_examinfo);
-        printf("%f\n", arr_examinfo[i].signif);
+
     }
     else {
         arr_examinfo[i].signif = importance(i, examnum, arr_examinfo);
-        printf("%f\n", arr_examinfo[i].signif);
+
     }
 }
-//loop that tells the user their schedule
+//loop that tells the user their schedule per each day of the week
+/*
 for (int j=0; j<7; j++){
     if (arr_dailytime[j].freetime <= 1){ //if the user only has 1 hour on a day, they will only study for 1 test
         int maxsignif;
@@ -78,6 +82,40 @@ for (int j=0; j<7; j++){
         }
     }
 }
+*/
+//loop that tells the user their schedule per each exam
+for (int i=0; i<examnum; i++){
+    printf("For Exam %d\n", i+1);
+    for (int j=0; j<7; j++){
+        if (arr_examinfo[i].examtime <= 7){
+            if (arr_dailytime[j].freetime = 0){
+            }
+            else if (arr_dailytime[j].freetime <= 1){
+                int maxsignif = maximportance(examnum, arr_examinfo);
+                printf("On %s, you will study for 1 hour\n", DAYS[j]);
+            }
+            else {
+                float time = timestudying(i, j, arr_examinfo, arr_dailytime);
+                printf("On %s, you will study for %f hours\n", DAYS[j], time);                
+            } 
+        }
+        else {
+            float time = timestudying(i, j, arr_examinfo, arr_dailytime);
+            int weeksstudying = numweekstudying(i, arr_examinfo);
+            int remainderofdays = remainderdaystudying(i, arr_examinfo);
+            if (remainderofdays = 0)
+                printf("On %s, you will study for %f hours for %d weeks\n", DAYS[j], time, weeksstudying);
+            else {
+                for (int k=0; k<remainderofdays; k++){
+                    printf("On %s, you will study for %f hours for %d weeks\n", DAYS[j], time, weeksstudying+1);    
+                }
+                printf("On %s, you will study for %f hours for %d weeks\n", DAYS[j], time, weeksstudying);
+            }
+        }
+        
+    }
+}  
+   
 
 return(0);
 }
@@ -114,9 +152,19 @@ float timestudying(int i, int j, struct examinfo arr_examinfo[MAXTEST], struct d
     return timeforstudying; 
    
 }
+//function to determine how many weeks will be spent studying on a test, will only work if they have 7 or more days to study
+int numweekstudying(int i, struct examinfo arr_examinfo[MAXTEST]){
+    int numweeks;
+    int remainder;
+    numweeks = arr_examinfo[i].examtime/7;
+    return numweeks;
+}
 
-
-
+int remainderdaystudying(int i, struct examinfo arr_examinfo[MAXTEST]){
+    int remainder;
+    remainder = arr_examinfo[i].examtime % 7;
+    return remainder; 
+}
 
   
  
