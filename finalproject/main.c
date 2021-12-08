@@ -20,6 +20,7 @@ int main(void) {
 //getting information from user
     printf("What day of the week is today if Sunday = 0 and Saturday = 6?");
     scanf("%d", &daytoday);
+    printf("%s\n", DAYS[daytoday]);//deleting later, just to help me for now
 	printf("How many exams do you have? ");
 	scanf("%d", &examnum);
 	if (examnum > MAXTEST){ //making sure number of exams is under six
@@ -44,6 +45,10 @@ int main(void) {
     for (int j=0; j < 7; j++){ //storing information for free time
         printf("How much free time do you have on %s, in hours? ", DAYS[j]);
         scanf("%d", &arr_dailytime[j].freetime);
+	if(arr_dailytime[j].freetime > 24){
+		printf("You cannot have more than 24 hours in the day free. Please enter a valid number under 24: ");
+		scanf("%d", &arr_dailytime[j].freetime);
+    }
     }
 //testing out if function sumdiff and importance work
 printf("%d \n", sumdiff(examnum, arr_examinfo));
