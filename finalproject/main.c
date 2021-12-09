@@ -91,17 +91,17 @@ for (int j=0; j<7; j++){
 //loop that tells the user their schedule per each exam
 for (int i=0; i<examnum; i++){
     printf("For Exam %d\n", i+1);
-    for (int j=0; daytoday<7; daytoday++){
+    for (int j= daytoday; j<7; j++){
         if (arr_examinfo[i].examtime <= 7){
             if (arr_dailytime[j].freetime = 0){
             }
             else if (arr_dailytime[j].freetime <= 1){
                 int maxsignif = maximportance(examnum, arr_examinfo);
-                printf("On %s, you will study for 1 hour\n", DAYS[daytoday]);
+                printf("On %s, you will study for 1 hour\n", DAYS[j]);
             }
             else {
                 float time = timestudying(i, j, arr_examinfo, arr_dailytime);
-                printf("On %s, you will study for %f hours\n", DAYS[daytoday], time);                
+                printf("On %s, you will study for %f hours\n", DAYS[j], time);                
             } 
         }
         else {
