@@ -91,6 +91,7 @@ for (int j=0; j<7; j++){
 //loop that tells the user their schedule per each exam
 for (int i=0; i<examnum; i++){
     printf("For Exam %d\n", i+1);
+    //telling user their schedule starting with day of the week 
     for (int j= daytoday; j<7; j++){
         if (arr_examinfo[i].examtime <= 7){
             if (arr_dailytime[j].freetime = 0){
@@ -119,6 +120,7 @@ for (int i=0; i<examnum; i++){
         }
         
     }
+    //for the days for before the given day of the week, same code as above except of the variable j, its q
     for (int q = 0; q < daytoday; q++){
 	    if (arr_examinfo[i].examtime <= 7){
 		    if (arr_dailytime[q].freetime = 0){
