@@ -119,6 +119,35 @@ for (int i=0; i<examnum; i++){
         }
         
     }
+    for (int q = 0; q < daytoday; q++){
+	    if (arr_examinfo[i].examtime <= 7){
+		    if (arr_dailytime[q].freetime = 0){
+		    }
+		    else if (arr_dailytime[q].freetime <= 1){
+			    int maxsignif = maximportance(examnum, arr_examinfo);
+			    printf("On %s, you will study for 1 hour\n", DAYS[q]);
+		    }
+		    else {
+			    float time = timestudying(i, q, arr_examinfo, arr_dailytime);
+			    printf("On %s, you will study for %f hours\n", DAYS[q], time);
+		    }
+	    }
+	    else {
+		    float time = timestudying(i, q, arr_examinfo, arr_dailytime);
+		    int weeksstudying = numweekstudying(i, arr_examinfo);
+		    int remainderofdays = remainderdaystudying(i, arr_examinfo);
+		    if (remainderofdays = 0){
+			    printf("On %s you will study for %f hours for %d weeks\n", DAYS [q], time, weeksstudying);
+		    }
+		    else {
+				    for (int k = 0; k<remainderofdays; k++){
+					    printf("On %s you will study for %f hours for %d weeks\n", DAYS[q], time, weeksstudying+1);
+				    }
+				    printf("On %s, you will studying for %f hours for %d weeks\n", DAYS[q],  time, weeksstudying);
+			    }
+		    }
+	    }
+
 }  
    
 
