@@ -10,7 +10,7 @@ char* DAYS[7] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 /* structure to store info for each exam*/
 struct examinfo { // ExamInfo
 	int examtime; // examTime -> timeUntilExamInDays
-	int examdiff; // examDifficulty
+	float examdiff; // examDifficulty
     float signif; 
 };
 
